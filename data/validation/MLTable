@@ -1,0 +1,13 @@
+paths:
+- file: validation.jsonl
+transformations:
+- read_json_lines:
+    encoding: utf8
+    include_path_column: false
+    invalid_lines: error
+    partition_size: 20971520
+    path_column: Path
+- convert_column_types:
+  - column_type: stream_info
+    columns: image_url
+type: mltable
